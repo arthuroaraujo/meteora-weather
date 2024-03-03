@@ -1,14 +1,15 @@
 <template>
-  <v-card elevation="2">
+  <v-card class="card" elevation="2">
     <div class="weather-div">
       <div class="date-inputs">
         <input type="date" class="custom-date-input" v-model="startDate">
         <input type="date" class="custom-date-input" v-model="endDate">
       </div>
       <button class="custom-button" @click="fetchWeatherData">Buscar Dados de Vento</button>
-
-      <v-data-table :items="items" :headers="headers"></v-data-table>
-      <Line v-if="loaded" :data="data" />
+      <div class="content-div">
+        <v-data-table :items="items" :headers="headers"></v-data-table>
+        <Line v-if="loaded" :data="data" />
+      </div>
     </div>
   </v-card>
 </template>
