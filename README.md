@@ -31,22 +31,28 @@ Para executar o Meteora localmente, siga as etapas abaixo:
    git clone https://github.com/arthuroaraujo/meteora-weather.git
 
    ```
+   
+3. Acesse o diretório do projeto:
 
-3. Instale as dependências do projeto utilizando o npm:
+   ```
+   cd trybetunes
+   ```
+
+4. Instale as dependências do projeto utilizando o npm:
 
    ```
    npm install
    
    ```
 
-4. Inicie o aplicativo localmente:
+5. Inicie o aplicativo localmente:
 
    ```
    npm run dev
    
    ```
 
-5. Acesse o aplicativo em seu navegador através do endereço [http://localhost:3000](http://localhost:3000).
+6. Acesse o aplicativo em seu navegador através do endereço [http://localhost:3000](http://localhost:3000).
 
 ## Observações de Uso
 
