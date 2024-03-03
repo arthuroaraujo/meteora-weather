@@ -28,7 +28,7 @@ Para executar o Meteora localmente, siga as etapas abaixo:
 2. Clone este repositório para o seu computador usando o seguinte comando:
 
    ```
-   git clone https://github.com/arthuroaraujo/meteora-weather.git
+   git clone git@github.com:arthuroaraujo/meteora-weather.git
 
    ```
    
