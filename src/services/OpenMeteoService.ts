@@ -1,4 +1,5 @@
 import { fetchWeatherApi } from 'openmeteo';
+import { validateDates } from '@/utils/utils';
 
 interface WeatherRequest {
     startDate: string,
@@ -16,6 +17,12 @@ interface WeatherResponse {
 }
 
 export async function fetchWeatherData({ startDate, endDate }: WeatherRequest) {
+
+    const validationMessage = validateDates(startDate, endDate);
+    if (validationMessage) {
+        alert(validationMessage);
+        return;
+    }
 
     const params = {
         "latitude": 52.52,
