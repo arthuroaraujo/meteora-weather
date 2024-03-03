@@ -24,9 +24,8 @@ import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, L
 ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement)
 
 export default defineComponent({
-  name: 'TemperatureComponent',
+  name: 'Temperature',
   components: { Line },
-
   props: {
     startDate: {
       type: String,
@@ -125,3 +124,26 @@ export default defineComponent({
 <style scoped>
 @import '@/styles/sharedStyles.css';
 </style>
+export function Temperature(Temperature: any, arg1: {
+  /* __placeholder__ */
+  props: {
+    /* __placeholder__ */
+    startDate: string;
+    /* __placeholder__ */
+    endDate: string;
+  };
+}) {
+  throw new Error('Function not implemented.');
+}
+export function Temperature(Temperature: any, arg1: {
+  /* __placeholder__ */
+  props: {
+    /* __placeholder__ */
+    startDate: string;
+    /* __placeholder__ */
+    endDate: string;
+  };
+}) {
+  throw new Error('Function not implemented.');
+}
+
