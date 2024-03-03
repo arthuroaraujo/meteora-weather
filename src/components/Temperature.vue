@@ -26,11 +26,11 @@ ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale
 export default defineComponent({
   name: 'TemperatureComponent',
   components: { Line },
-  
+
   props: {
     startDate: {
-      type: String, 
-      required: true 
+      type: String,
+      required: true
     },
     endDate: {
       type: String,
@@ -39,13 +39,13 @@ export default defineComponent({
   },
   data() {
     return {
-      startDate: '2024-01-01',
-      endDate: '2024-01-01',
+      startDate: '',
+      endDate: '',
       items: [] as TemperatureItem[],
       headers: [
-        {title: 'Data', value: 'dateTime', align: 'center'},
-        {title: 'Temperatura Aparente em °C', value: 'apparent_temperature', align: 'center'},
-        {title: 'Temperatura a 2m em °C', value: 'temperature_2m', align: 'center'},
+        { title: 'Data', value: 'dateTime', align: 'center' },
+        { title: 'Temperatura Aparente em °C', value: 'apparent_temperature', align: 'center' },
+        { title: 'Temperatura a 2m em °C', value: 'temperature_2m', align: 'center' },
       ] as any,
       weatherData: null as any,
       loaded: false,
@@ -65,7 +65,7 @@ export default defineComponent({
           endDate: this.endDate
         });
         this.weatherData = responses;
-        
+
 
         if (!this.weatherData?.hourly) {
           console.error('Dados da resposta da API estão incompletos:', this.weatherData);
@@ -121,3 +121,7 @@ export default defineComponent({
 
 
 </script>
+
+<style scoped>
+@import '@/styles/sharedStyles.css';
+</style>

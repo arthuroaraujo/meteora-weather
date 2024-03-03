@@ -13,3 +13,7 @@
         informações precisas e atualizadas para ajudá-lo a planejar seu dia com confiança.</p>
     </div>
   </template>
+
+<style scoped>
+@import '@/styles/homePage.css';
+</style>

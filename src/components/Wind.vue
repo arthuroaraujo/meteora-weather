@@ -28,8 +28,8 @@ export default defineComponent({
   components: { Line },
   props: {
     startDate: {
-      type: String, 
-      required: true 
+      type: String,
+      required: true
     },
     endDate: {
       type: String,
@@ -38,13 +38,13 @@ export default defineComponent({
   },
   data() {
     return {
-      startDate: '2024-01-01',
-      endDate: '2024-01-01',
+      startDate: '',
+      endDate: '',
       items: [] as WindItem[],
       headers: [
-        {title: 'Data', value: 'dateTime', align: 'center'},
-        {title: 'Velocidade do Vento a 10m em km/h', value: 'wind_speed_10m', align: 'center'},
-        {title: 'Velocidade do Vento a 80m em km/h', value: 'wind_speed_80m', align: 'center'},
+        { title: 'Data', value: 'dateTime', align: 'center' },
+        { title: 'Velocidade do Vento a 10m em km/h', value: 'wind_speed_10m', align: 'center' },
+        { title: 'Velocidade do Vento a 80m em km/h', value: 'wind_speed_80m', align: 'center' },
       ] as any,
       weatherData: null as any,
       loaded: false,
@@ -64,7 +64,7 @@ export default defineComponent({
           endDate: this.endDate
         });
         this.weatherData = responses;
-        
+
 
         if (!this.weatherData?.hourly) {
           console.error('Dados da resposta da API estão incompletos:', this.weatherData);
@@ -75,8 +75,8 @@ export default defineComponent({
         const dateTime = this.weatherData.hourly.time;
         const windSpeed10m = this.weatherData.hourly.windSpeed10m;
         const windSpeed80m = this.weatherData.hourly.windSpeed80m;
-        
-        
+
+
         windSpeed10m.forEach((el: any, index: number) => {
           const dateObject = new Date(dateTime[index]);
           const formattedDateTime = dateObject.toLocaleString('pt-BR', { timeZone: 'UTC' });
@@ -91,7 +91,7 @@ export default defineComponent({
         });
 
         this.items = list;
-        
+
 
         this.data = {
           labels: this.items.map((item) => item.dateTime),
@@ -119,3 +119,7 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+@import '@/styles/sharedStyles.css';
+</style>

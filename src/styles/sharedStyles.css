@@ -1,0 +1,37 @@
+.date-inputs {
+    margin-bottom: 20px; 
+  }
+  
+  .custom-date-input {
+    padding: 8px 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    font-size: 16px; 
+  }
+  
+  .custom-date-input:hover {
+    border-color: #999;
+  }
+  
+  
+  .custom-date-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  .custom-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .custom-button:hover {
+    background-color: #45a049;
+  }
+  
+  .v-data-table-header th {
+      white-space: nowrap;
+    }
