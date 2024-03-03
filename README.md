@@ -54,7 +54,7 @@ Ao utilizar o aplicativo, é importante observar as seguintes diretrizes:
 
 1. **Seleção de Datas**: Certifique-se de selecionar datas de início e fim ao buscar dados meteorológicos. Caso contrário, o aplicativo não será capaz de realizar a pesquisa corretamente.
 
-2. **Validação de Datas**: As datas de início e fim devem ser válidas e estar dentro do intervalo específico de 21 de setembro de 2023 a 18 de março de 2024. Caso contrário, será exibida uma mensagem de erro indicando a necessidade de ajustar as datas selecionadas.
+2. **Validação de Datas**: As datas de início e fim devem ser válidas e estar dentro do intervalo específico de 21 de setembro de 2023 a 15 dias a partir do dia atual. Caso contrário, será exibida uma mensagem de erro indicando a necessidade de ajustar as datas selecionadas.
 
 3. **Duração da Previsão**: A duração máxima da previsão é de 14 dias. Selecione um intervalo de datas dentro deste limite para obter resultados precisos ao buscar dados meteorológicos.
 
