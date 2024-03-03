@@ -1,81 +1,69 @@
-# Vuetify (Default)
+# Meteora Weather
 
-This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.
+## Descrição
 
-## ❗️ Important Links
+O Meteora oferece uma experiência meteorológica, combinando os confiáveis modelos meteorológicos NOAA GFS com o modelo meteorológico HRRR de atualização rápida. No aplicativo, você encontrará duas páginas distintas: uma dedicada à temperatura aparente e temperatura a 2 metros acima do solo, e outra destinada à velocidade do vento a 10 metros e 80 metros de altura.
 
-- 📄 [Docs](https://vuetifyjs.com/)
-- 🚨 [Issues](https://issues.vuetifyjs.com/)
-- 🏬 [Store](https://store.vuetifyjs.com/)
-- 🎮 [Playground](https://play.vuetifyjs.com/)
-- 💬 [Discord](https://community.vuetifyjs.com)
+## Funcionalidades
 
-## 💿 Install
+- **Dados em Tempo Real:** Visualize dados meteorológicos atualizados em tempo real.
+- **Duas Páginas Distintas:** Explore informações de temperatura e velocidade do vento em páginas separadas.
+- **Gráficos Interativos:** Analise tendências de temperatura e velocidade do vento com gráficos interativos.
+- **Seleção de Data:** Escolha intervalos de data específicos para visualizar dados históricos.
 
-Set up your project using your preferred package manager. Use the corresponding command to install the dependencies:
+## Tecnologias Utilizadas
 
-| Package Manager                                                | Command        |
-|---------------------------------------------------------------|----------------|
-| [yarn](https://yarnpkg.com/getting-started)                   | `yarn install` |
-| [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)     | `npm install`  |
-| [pnpm](https://pnpm.io/installation)                          | `pnpm install` |
-| [bun](https://bun.sh/#getting-started)                        | `bun install`  |
+- Vue.js
+- Vuetify
+- Chart.js
+- TypeScript
+- Vue Router
 
-After completing the installation, your environment is ready for Vuetify development.
+## Instalação
 
-## ✨ Features
+Para executar o Meteora localmente, siga as etapas abaixo:
 
-- 🖼️ **Optimized Front-End Stack**: Leverage the latest Vue 3 and Vuetify 3 for a modern, reactive UI development experience. [Vue 3](https://v3.vuejs.org/) | [Vuetify 3](https://vuetifyjs.com/en/)
-- 🗃️ **State Management**: Integrated with [Pinia](https://pinia.vuejs.org/), the intuitive, modular state management solution for Vue.
-- 🚦 **Routing and Layouts**: Utilizes Vue Router for SPA navigation and vite-plugin-vue-layouts for organizing Vue file layouts. [Vue Router](https://router.vuejs.org/) | [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
-- 💻 **Enhanced Development Experience**: Benefit from TypeScript's static type checking and the ESLint plugin suite for Vue, ensuring code quality and consistency. [TypeScript](https://www.typescriptlang.org/) | [ESLint Plugin Vue](https://eslint.vuejs.org/)
-- ⚡ **Next-Gen Tooling**: Powered by Vite, experience fast cold starts and instant HMR (Hot Module Replacement). [Vite](https://vitejs.dev/)
-- 🧩 **Automated Component Importing**: Streamline your workflow with unplugin-vue-components, automatically importing components as you use them. [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
-- 🛠️ **Strongly-Typed Vue**: Use vue-tsc for type-checking your Vue components, and enjoy a robust development experience. [vue-tsc](https://github.com/johnsoncodehk/volar/tree/master/packages/vue-tsc)
+1. Certifique-se de ter o Node.js instalado em sua máquina. Você pode fazer o download e instalar a versão mais recente do Node.js em: [https://nodejs.org](https://nodejs.org)
+   
+2. Clone este repositório para o seu computador usando o seguinte comando:
 
-These features are curated to provide a seamless development experience from setup to deployment, ensuring that your Vuetify application is both powerful and maintainable.
+   ```
+   git clone https://github.com/arthuroaraujo/meteora-weather.git
 
-## 💡 Usage
+   ```
 
-This section covers how to start the development server and build your project for production.
+3. Instale as dependências do projeto utilizando o npm:
 
-### Starting the Development Server
+   ```
+   npm install
+   
+   ```
 
-To start the development server with hot-reload, run the following command. The server will be accessible at [http://localhost:3000](http://localhost:3000):
+4. Inicie o aplicativo localmente:
 
-```bash
-yarn dev
-```
+   ```
+   npm run dev
+   
+   ```
 
-(Repeat for npm, pnpm, and bun with respective commands.)
+5. Acesse o aplicativo em seu navegador através do endereço [http://localhost:3000](http://localhost:3000).
 
-> Add NODE_OPTIONS='--no-warnings' to suppress the JSON import warnings that happen as part of the Vuetify import mapping. If you are on Node [v21.3.0](https://nodejs.org/en/blog/release/v21.3.0) or higher, you can change this to NODE_OPTIONS='--disable-warning=5401'. If you don't mind the warning, you can remove this from your package.json dev script.
+## Observações de Uso
 
-### Building for Production
+Ao utilizar o aplicativo, é importante observar as seguintes diretrizes:
 
-To build your project for production, use:
+1. **Seleção de Datas**: Certifique-se de selecionar datas de início e fim ao buscar dados meteorológicos. Caso contrário, o aplicativo não será capaz de realizar a pesquisa corretamente.
 
-```bash
-yarn build
-```
+2. **Validação de Datas**: As datas de início e fim devem ser válidas e estar dentro do intervalo específico de 21 de setembro de 2023 a 18 de março de 2024. Caso contrário, será exibida uma mensagem de erro indicando a necessidade de ajustar as datas selecionadas.
 
-(Repeat for npm, pnpm, and bun with respective commands.)
+3. **Duração da Previsão**: A duração máxima da previsão é de 14 dias. Selecione um intervalo de datas dentro deste limite para obter resultados precisos ao buscar dados meteorológicos.
 
-Once the build process is completed, your application will be ready for deployment in a production environment.
+## Próximos Passos
 
-## 💪 Support Vuetify Development
+Aqui estão alguns próximos passos que podem ser realizados para melhorar o projeto:
 
-This project is built with [Vuetify](https://vuetifyjs.com/en/), a UI Library with a comprehensive collection of Vue components. Vuetify is an MIT licensed Open Source project that has been made possible due to the generous contributions by our [sponsors and backers](https://vuetifyjs.com/introduction/sponsors-and-backers/). If you are interested in supporting this project, please consider:
+1. **Testagem do Aplicativo**: Para garantir a estabilidade e a confiabilidade do aplicativo, a próxima etapa é focar na testagem abrangente do sistema. Através da testagem, podemos identificar e corrigir possíveis bugs e falhas de forma proativa, assegurando uma experiência consistente e satisfatória para os usuários.
 
-- [Requesting Enterprise Support](https://support.vuetifyjs.com/)
-- [Sponsoring John on Github](https://github.com/users/johnleider/sponsorship)
-- [Sponsoring Kael on Github](https://github.com/users/kaelwd/sponsorship)
-- [Supporting the team on Open Collective](https://opencollective.com/vuetify)
-- [Becoming a sponsor on Patreon](https://www.patreon.com/vuetify)
-- [Becoming a subscriber on Tidelift](https://tidelift.com/subscription/npm/vuetify)
-- [Making a one-time donation with Paypal](https://paypal.me/vuetify)
+2. **Responsividade para Mobile**: Com a crescente demanda por acesso móvel, desenvolver uma versão do aplicativo otimizada para dispositivos móveis é um próximo passo essencial. Isso envolve a adaptação do layout, funcionalidades e recursos do aplicativo para oferecer uma experiência intuitiva e responsiva em smartphones e tablets.
 
-## 📑 License
-[MIT](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2016-present Vuetify, LLC
+Sinta-se à vontade para explorar essas sugestões e adicionar novos recursos e melhorias ao Meteora!
