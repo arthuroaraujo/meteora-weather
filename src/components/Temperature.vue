@@ -1,12 +1,11 @@
 <template>
   <v-card elevation="2">
-    <div class="temperatura">
+    <div class="weather-div">
       <div class="date-inputs">
         <input type="date" class="custom-date-input" v-model="startDate">
         <input type="date" class="custom-date-input" v-model="endDate">
       </div>
       <button class="custom-button" @click="fetchWeatherData">Buscar Dados Meteorológicos</button>
-
       <v-data-table :items="items" :headers="headers"></v-data-table>
       <Line v-if="loaded" :data="data" />
     </div>
@@ -124,26 +123,3 @@ export default defineComponent({
 <style scoped>
 @import '@/styles/sharedStyles.css';
 </style>
-export function Temperature(Temperature: any, arg1: {
-  /* __placeholder__ */
-  props: {
-    /* __placeholder__ */
-    startDate: string;
-    /* __placeholder__ */
-    endDate: string;
-  };
-}) {
-  throw new Error('Function not implemented.');
-}
-export function Temperature(Temperature: any, arg1: {
-  /* __placeholder__ */
-  props: {
-    /* __placeholder__ */
-    startDate: string;
-    /* __placeholder__ */
-    endDate: string;
-  };
-}) {
-  throw new Error('Function not implemented.');
-}
-
