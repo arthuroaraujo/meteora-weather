@@ -1,11 +1,11 @@
 <template>
-  <v-app>
-    <v-main>
-      <HelloWorld />
-    </v-main>
-  </v-app>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
-<script setup lang="ts">
-  //
+<script>
+export default {
+  name: 'App'
+}
 </script>
