@@ -8,6 +8,7 @@
       <button class="custom-button" @click="fetchWeatherData">Buscar Dados de Vento</button>
 
       <v-data-table :items="items" :headers="headers"></v-data-table>
+      <Line v-if="loaded" :data="data" />
     </div>
   </v-card>
 </template>
@@ -16,10 +17,15 @@
 import { defineComponent } from 'vue';
 import { fetchWeatherData } from '@/services/OpenMeteoService';
 import { validateDates } from '@/utils/utils';
-import { WindItem } from '@/interface/WindItem';
+import { WindItem } from '@/interfaces/WindItem';
+import { Line } from 'vue-chartjs';
+import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, ChartData, PointElement } from 'chart.js';
+
+ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement);
 
 export default defineComponent({
   name: 'WindComponent',
+  components: { Line },
   props: {
     startDate: {
       type: String, 
@@ -41,6 +47,7 @@ export default defineComponent({
         {title: 'Velocidade do Vento a 80m em km/h', value: 'wind_speed_80m', align: 'center'},
       ] as any,
       weatherData: null as any,
+      loaded: false,
       data: null as any,
     };
   },
@@ -58,6 +65,7 @@ export default defineComponent({
         });
         this.weatherData = responses;
         
+
         if (!this.weatherData?.hourly) {
           console.error('Dados da resposta da API estão incompletos:', this.weatherData);
           return
@@ -83,6 +91,24 @@ export default defineComponent({
         });
 
         this.items = list;
+        
+
+        this.data = {
+          labels: this.items.map((item) => item.dateTime),
+          datasets: [
+            {
+              label: 'Velocidade do Vento a 10m em km/h',
+              backgroundColor: '#00FF00',
+              data: this.items.map((item) => item.wind_speed_10m)
+            },
+            {
+              label: 'Velocidade do Vento a 80m em km/h',
+              backgroundColor: '#006400',
+              data: this.items.map((item) => item.wind_speed_80m)
+            }
+          ]
+        }
+        this.loaded = true;
 
         this.$emit('update:startDate', this.startDate);
         this.$emit('update:endDate', this.endDate);

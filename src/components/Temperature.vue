@@ -8,6 +8,7 @@
       <button class="custom-button" @click="fetchWeatherData">Buscar Dados Meteorológicos</button>
 
       <v-data-table :items="items" :headers="headers"></v-data-table>
+      <Line v-if="loaded" :data="data" />
     </div>
   </v-card>
 </template>
@@ -16,10 +17,16 @@
 import { defineComponent } from 'vue';
 import { fetchWeatherData } from '@/services/OpenMeteoService';
 import { validateDates } from '@/utils/utils';
-import { TemperatureItem } from '@/interface/TemperatureItem';
+import { TemperatureItem } from '@/interfaces/TemperatureItem'
+import { Line } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, ChartData, PointElement } from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement)
 
 export default defineComponent({
   name: 'TemperatureComponent',
+  components: { Line },
+  
   props: {
     startDate: {
       type: String, 
@@ -41,6 +48,7 @@ export default defineComponent({
         {title: 'Temperatura a 2m em °C', value: 'temperature_2m', align: 'center'},
       ] as any,
       weatherData: null as any,
+      loaded: false,
       data: null as any,
     }
   },
@@ -58,6 +66,7 @@ export default defineComponent({
         });
         this.weatherData = responses;
         
+
         if (!this.weatherData?.hourly) {
           console.error('Dados da resposta da API estão incompletos:', this.weatherData);
           return
@@ -82,6 +91,23 @@ export default defineComponent({
         });
 
         this.items = list;
+
+        this.data = {
+          labels: this.items.map((item) => item.dateTime),
+          datasets: [
+            {
+              label: 'Temperatura Aparente em °C',
+              backgroundColor: '#00FF00',
+              data: this.items.map((item) => item.apparent_temperature)
+            },
+            {
+              label: 'Temperatura a 2m em °C',
+              backgroundColor: '#006400',
+              data: this.items.map((item) => item.temperature_2m)
+            }
+          ]
+        }
+        this.loaded = true
 
         this.$emit('update:startDate', this.startDate);
         this.$emit('update:endDate', this.endDate);
