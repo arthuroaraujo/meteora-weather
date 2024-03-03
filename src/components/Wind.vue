@@ -1,6 +1,6 @@
 <template>
   <v-card elevation="2">
-    <div class="vento">
+    <div class="weather-div">
       <div class="date-inputs">
         <input type="date" class="custom-date-input" v-model="startDate">
         <input type="date" class="custom-date-input" v-model="endDate">
