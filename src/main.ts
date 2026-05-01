@@ -3,9 +3,9 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { registerPlugins } from '@/plugins'
 
+import HomePage from './views/HomePage.vue'
 import TemperaturePage from './views/TemperaturePage.vue'
 import WindPage from './views/WindPage.vue'
-import HomePage from './views/HomePage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -23,4 +23,3 @@ registerPlugins(app)
 app.use(router)
 
 app.mount('#app')
-
