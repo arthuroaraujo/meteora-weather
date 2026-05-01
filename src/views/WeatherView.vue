@@ -1,9 +1,15 @@
 <template>
-  <div class="temperatura-page">
-    <h1>Temperatura</h1>
+  <div class="weather-page">
+    <h1>Clima</h1>
 
     <WeatherComponent
       mode="temperature"
+      v-model:startDate="startDate"
+      v-model:endDate="endDate"
+    />
+
+    <WeatherComponent
+      mode="wind"
       v-model:startDate="startDate"
       v-model:endDate="endDate"
     />

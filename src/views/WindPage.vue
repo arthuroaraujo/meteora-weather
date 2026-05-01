@@ -1,36 +1,19 @@
 <template>
   <div class="wind-page">
-    <h1>Velocidade do Vento</h1>
-    <Wind :start-date.sync="startDate"
-      :end-date.sync="endDate"/>
+    <h1>Vento</h1>
+
+    <WeatherComponent
+      mode="wind"
+      v-model:startDate="startDate"
+      v-model:endDate="endDate"
+    />
   </div>
 </template>
 
-<script lang="ts">
-import { fetchWeatherData } from '@/services/OpenMeteoService';
-import Wind from '../components/Wind.vue';
+<script setup lang="ts">
+import { ref } from 'vue'
+import WeatherComponent from '@/components/WeatherComponent.vue'
 
-export default {
-  components: {
-    Wind,
-  },
-  data() {
-    return {
-      startDate: '',
-      endDate: ''
-    }
-  },
-  methods: {
-    async fetchMethod() {
-      try {
-        const response = await fetchWeatherData({
-          startDate: this.startDate,
-          endDate: this.endDate
-        });
-      } catch (error) {
-        console.error('Erro ao buscar dados da API:', error);
-      }
-    }
-  }
-};
+const startDate = ref('')
+const endDate = ref('')
 </script>
