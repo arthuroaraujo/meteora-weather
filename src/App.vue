@@ -1,6 +1,6 @@
 <template>
   <SideBar />
-  <div :style="{ 'margin-left': sidebarWidth }">
+  <div :style="{ marginLeft: sidebarWidth }" class="main-content">
     <router-view />
   </div>
 </template>

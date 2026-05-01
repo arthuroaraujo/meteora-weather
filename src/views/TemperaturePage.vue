@@ -1,6 +1,6 @@
 <template>
   <div class="temperatura-page">
-    <h1>Temperatura</h1>
+    <h1 class=my-3>Temperatura</h1>
 
     <WeatherComponent
       mode="temperature"

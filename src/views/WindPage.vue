@@ -1,6 +1,6 @@
 <template>
   <div class="wind-page">
-    <h1>Vento</h1>
+    <h1 class=my-3>Vento</h1>
 
     <WeatherComponent
       mode="wind"
