@@ -1,5 +1,5 @@
 <script lang="ts">
-import SidebarLink from '@/components/SideBar/SideBarLink.vue'
+import SidebarLink from './SideBarLink.vue'
 
 export default {
   components: { SidebarLink },
@@ -8,9 +8,12 @@ export default {
 
 <template>
   <div class="sidebar">
-    <h1>
-      <span>Meteora</span>
-    </h1>
+    <div class="sidebar-brand">
+      <p class="brand-kicker">Weather App</p>
+      <h1>
+        <span>Meteora</span>
+      </h1>
+    </div>
 
     <SidebarLink to="/" icon="fas fa-home">Início</SidebarLink>
     <SidebarLink to="/temperatura" icon="fas fa-columns">Temperatura</SidebarLink>
@@ -20,9 +23,11 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
+  --sidebar-bg-color: #0f172a;
+  --sidebar-item-hover: rgba(148, 163, 184, 0.16);
+  --sidebar-item-active: rgba(148, 163, 184, 0.24);
+  --radius: 16px;
+  --transition: all 0.2s ease;
 }
 </style>
 

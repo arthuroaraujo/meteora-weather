@@ -1,6 +1,8 @@
 .sidebar {
+  box-sizing: border-box;
   width: 180px;
-  background-color: #2f855a;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.96) 100%);
   color: white;
 
   position: fixed;
@@ -8,11 +10,32 @@
   bottom: 0;
   left: 0;
 
-  padding: 0.5em;
+  padding: 28px 16px;
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 
-  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: 14px 0 36px rgba(15, 23, 42, 0.16);
+}
+
+.sidebar-brand {
+  margin-bottom: 16px;
+  padding: 10px 12px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.sidebar-brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.brand-kicker {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
 }
