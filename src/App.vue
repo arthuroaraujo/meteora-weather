@@ -1,7 +1,9 @@
 <template>
-  <SideBar />
-  <div :style="{ marginLeft: sidebarWidth }" class="main-content">
-    <router-view />
+  <div class="app-shell">
+    <SideBar />
+    <main :style="{ marginLeft: sidebarWidth }" class="main-content">
+      <router-view />
+    </main>
   </div>
 </template>
 
@@ -21,25 +23,45 @@ export default {
 </script>
 
 <style>
+html,
+body,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(125, 211, 252, 0.18), transparent 35%),
+    linear-gradient(180deg, #f8fafc 0%, #eff5fa 45%, #e7eef5 100%);
+}
+
+#app {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #1f2937;
 }
 
-#nav {
-  padding: 30px;
+.app-shell {
+  min-height: 100vh;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.main-content {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 40px;
+  padding-top: 52px;
+  padding-bottom: 52px;
+  transition: margin-left 0.2s ease;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+@media (max-width: 768px) {
+  .main-content {
+    padding: 24px 18px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 }
 </style>
 
