@@ -1,34 +1,70 @@
 <template>
-    <div class="weather-div">
-      <div class="filters">
+  <section class="weather-panel" :class="`weather-panel-${mode}`">
+    <div class="panel-header">
+      <div :class="['panel-intro-card', `panel-intro-card-${mode}`]">
+        <p class="panel-kicker">Consulta meteorologica</p>
+        <h2>{{ panelTitle }}</h2>
+        <p class="panel-copy">{{ panelDescription }}</p>
+      </div>
+
+      <div class="filters-card">
         <div class="date-inputs">
-          <input
-            type="date"
-            class="custom-date-input"
-            v-model="localStartDate"
-          />
-          <input type="date" class="custom-date-input" v-model="localEndDate" />
+          <label class="input-group">
+            <span>Data inicial</span>
+            <input
+              type="date"
+              class="custom-date-input"
+              v-model="localStartDate"
+            />
+          </label>
+
+          <label class="input-group">
+            <span>Data final</span>
+            <input type="date" class="custom-date-input" v-model="localEndDate" />
+          </label>
         </div>
 
         <button class="custom-button" @click="handleFetch">
           {{ buttonLabel }}
         </button>
       </div>
-
-      <div class="content-div">
-        <v-data-table v-if="loaded" :items="items" :headers="headers" />
-        <Line v-if="loaded" :data="data" />
-      </div>
     </div>
+
+    <div v-if="loaded" class="content-grid">
+      <section class="data-card">
+        <div class="section-heading">
+          <h3>Resultados</h3>
+          <p>{{ items.length }} registros carregados</p>
+        </div>
+
+        <v-data-table :items="items" :headers="headers" />
+      </section>
+
+      <section class="data-card chart-card">
+        <div class="section-heading">
+          <h3>Tendencia</h3>
+          <p>Visualizacao das variacoes no periodo</p>
+        </div>
+
+        <Line :data="data" :options="chartOptions" />
+      </section>
+    </div>
+
+    <section v-else class="empty-state">
+      <h3>{{ emptyStateTitle }}</h3>
+      <p>Selecione um intervalo de datas e carregue os dados para visualizar a tabela e o grafico.</p>
+    </section>
+  </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
-import { fetchWeatherData } from "@/services/OpenMeteoService";
-import { validateDates } from "@/utils/utils";
+import { defineComponent } from "vue";
+import { fetchWeatherData } from "../services/OpenMeteoService";
+import { validateDates } from "../utils/utils";
 import { Line } from "vue-chartjs";
 import {
   Chart as ChartJS,
+  type ChartOptions,
   Title,
   Tooltip,
   Legend,
@@ -79,6 +115,20 @@ export default defineComponent({
         : "Buscar Dados de Vento";
     },
 
+    panelTitle(): string {
+      return this.mode === "temperature" ? "Leitura termica" : "Leitura por altitude";
+    },
+
+    panelDescription(): string {
+      return this.mode === "temperature"
+        ? "Compare temperatura real e aparente no intervalo escolhido."
+        : "Compare 10 e 80 metros no intervalo escolhido.";
+    },
+
+    emptyStateTitle(): string {
+      return this.mode === "temperature" ? "Nenhum dado de temperatura carregado" : "Nenhum dado de vento carregado";
+    },
+
     headers(): any[] {
       if (this.mode === "temperature") {
         return [
@@ -97,6 +147,25 @@ export default defineComponent({
         { title: "Vento 10m km/h", value: "wind_speed_10m", align: "center" },
         { title: "Vento 80m km/h", value: "wind_speed_80m", align: "center" },
       ];
+    },
+
+    chartOptions(): ChartOptions<"line"> {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "top" as const,
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              maxTicksLimit: 6,
+            },
+          },
+        },
+      };
     },
   },
 
@@ -184,7 +253,10 @@ export default defineComponent({
         datasets: keys.map((key, i) => ({
           label: labels[i],
           data: items.map((item) => item[key]),
-          backgroundColor: i === 0 ? "#00FF00" : "#006400",
+          borderColor: i === 0 ? "#2f855a" : "#14532d",
+          backgroundColor: i === 0 ? "rgba(47, 133, 90, 0.18)" : "rgba(20, 83, 45, 0.18)",
+          tension: 0.35,
+          fill: true,
         })),
       };
     },

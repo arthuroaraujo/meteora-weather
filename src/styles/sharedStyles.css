@@ -1,47 +1,255 @@
+.weather-page-shell {
+  display: grid;
+  gap: 88px;
+  max-width: 1200px;
+  margin: 18px auto 28px;
+}
+
+.page-hero {
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+.page-kicker,
+.panel-kicker {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.page-hero h1,
+.panel-header h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.page-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.page-copy,
+.panel-copy {
+  max-width: 760px;
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.weather-panel {
+  display: grid;
+  gap: 56px;
+  margin: 28px 0 40px;
+}
+
+.weather-panel-wind .panel-header {
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.85fr);
+}
+
+.weather-panel-wind .panel-copy {
+  max-width: 460px;
+}
+
+.weather-panel-wind .panel-kicker {
+  color: #0284c7;
+}
+
+.weather-panel-wind .panel-intro-card {
+  background: linear-gradient(180deg, rgba(239, 246, 255, 0.94), rgba(255, 255, 255, 0.88));
+}
+
+.weather-panel-wind .filters-card {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(255, 255, 255, 0.88));
+}
+
+.weather-panel-wind .custom-button:hover {
+  box-shadow: 0 14px 24px rgba(14, 165, 233, 0.22);
+}
+
+.weather-panel-temperature .panel-header {
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.85fr);
+}
+
+.weather-panel-temperature .panel-copy {
+  max-width: 420px;
+}
+
+.weather-panel-temperature .filters-card {
+  background: linear-gradient(180deg, rgba(255, 251, 235, 0.96), rgba(255, 255, 255, 0.88));
+}
+
+.weather-panel-temperature .custom-date-input:focus {
+  border-color: #ea580c;
+  box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.12);
+}
+
+.weather-panel-temperature .custom-button {
+  background: linear-gradient(135deg, #c2410c, #f97316);
+}
+
+.weather-panel-temperature .custom-button:hover {
+  box-shadow: 0 14px 24px rgba(249, 115, 22, 0.22);
+}
+
+.panel-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.panel-intro-card {
+  display: grid;
+  gap: 12px;
+  padding: 30px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+  text-align: left;
+}
+
+.filters-card,
+.data-card,
+.empty-state {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+}
+
+.filters-card {
+  display: grid;
+  gap: 22px;
+  padding: 26px;
+}
+
 .date-inputs {
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.input-group {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .custom-date-input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  font-size: 1rem;
+  color: #0f172a;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .custom-date-input:hover {
-  border-color: #999;
+  border-color: #94a3b8;
 }
-
 
 .custom-date-input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
 .custom-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+  min-height: 48px;
+  padding: 0 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 14px;
   cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .custom-button:hover {
-  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(37, 99, 235, 0.2);
+}
+
+.content-grid {
+  display: grid;
+  gap: 36px;
+  margin-top: 28px;
+}
+
+.data-card {
+  overflow: hidden;
+  padding: 24px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.section-heading h3,
+.empty-state h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.section-heading p,
+.empty-state p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.chart-card {
+  min-height: 420px;
+}
+
+.chart-card canvas {
+  max-height: 320px;
+}
+
+.empty-state {
+  padding: 52px 32px;
+  margin-top: 28px;
 }
 
 .v-data-table-header th {
   white-space: nowrap;
 }
 
-.content-div {
-  margin-right: 25px;
+@media (max-width: 960px) {
+  .panel-header {
+    grid-template-columns: 1fr;
+  }
 }
 
-.card {
-  margin-right: 25px;
+@media (max-width: 700px) {
+  .date-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
