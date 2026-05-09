@@ -11,8 +11,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SideBar: typeof import('./src/components/SideBar/SideBar.vue')['default']
     SideBarLink: typeof import('./src/components/SideBar/SideBarLink.vue')['default']
-    Temperature: typeof import('./src/components/Temperature.vue')['default']
     WeatherComponent: typeof import('./src/components/WeatherComponent.vue')['default']
-    Wind: typeof import('./src/components/Wind.vue')['default']
   }
 }

@@ -1,5 +1,5 @@
 import { fetchWeatherApi } from 'openmeteo';
-import { validateDates } from '@/utils/utils';
+import { validateDates } from '../utils/utils';
 
 interface WeatherRequest {
     startDate: string,

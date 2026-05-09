@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from './plugins'
 
 import HomePage from './views/HomePage.vue'
 import TemperaturePage from './views/TemperaturePage.vue'

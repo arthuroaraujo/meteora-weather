@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import WeatherComponent from '@/components/WeatherComponent.vue'
+import WeatherComponent from '../components/WeatherComponent.vue'
 
 const startDate = ref('')
 const endDate = ref('')
